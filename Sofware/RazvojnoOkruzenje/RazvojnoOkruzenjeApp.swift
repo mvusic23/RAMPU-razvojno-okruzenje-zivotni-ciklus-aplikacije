@@ -11,7 +11,7 @@ import SwiftUI
 struct RazvojnoOkruzenjeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PrviPogled()
         }
     }
 }

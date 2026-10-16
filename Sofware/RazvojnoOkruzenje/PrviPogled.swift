@@ -9,9 +9,18 @@ import SwiftUI
 
 struct PrviPogled: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+        NavigationStack {
+            VStack(spacing: 20) {
+                Text("Dobrodošli u aplikaciju!")
+                    .font(.largeTitle)
+
+                Text("Kliknite \"Dalje\" kako biste nastavili kroz aplikaciju")
+                NavigationLink("Dalje") {
+                    DrugiPogled()
+                }
+            }
+            .multilineTextAlignment(.center)
+            .padding()
         }
     }
 }
