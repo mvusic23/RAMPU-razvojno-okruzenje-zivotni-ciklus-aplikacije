@@ -124,6 +124,8 @@ Također tu je i kartica History Insecptor koja slući za datoteke koje se prate
 Na lijevoj strani prozora nalazi se područje Navigator, koje omogućuje pregled različitih dijelova projekta. Jedna od najčešće korištenih kartica je Project navigator, koji se otvara klikom na ikonu mape. U njemu su prikazane datoteke i mape koje pripadaju projektu. Datoteka ContentView.swift sadrži početni SwiftUI pogled, dok se u katalogu Assets pohranjuju resursi poput slika, boja i ikone aplikacije. Datoteka čiji naziv završava s App.swift definira ulaznu točku aplikacije i njezin početni sadržaj. Klikom na naziv samog projekta otvaraju se njegove postavke, u kojima se mogu uređivati ciljevi aplikacije i konfiguracija izgradnje.
 
 Pri vrhu područja Navigator nalaze se kartice koje omogućuju pristup različitim vrstama informacija. Project navigator služi za pregled i organizaciju datoteka projekta, dok Source Control navigator prikazuje promjene povezane sa sustavom za kontrolu verzija, primjerice Gitom. Find navigator omogućuje pretraživanje teksta i izraza kroz cijeli projekt, a Issue navigator prikazuje pogreške, upozorenja i druge probleme koje Xcode otkrije tijekom pisanja ili izgradnje aplikacije. Test navigator služi za pregled, pokretanje i praćenje rezultata testova. Debug navigator prikazuje informacije o aplikaciji tijekom njezina izvođenja i otklanjanja pogrešaka, poput aktivnih dretvi te korištenja procesora i memorije. Breakpoint navigator omogućuje pregled i upravljanje prijelomnim točkama (breakpoints), odnosno mjestima na kojima se izvođenje programa privremeno zaustavlja radi analize. Report navigator sadrži izvještaje o prethodnim izgradnjama, testiranjima i drugim aktivnostima koje je Xcode izvršio.
+S desne strane možemo vidjeti Project Editor koji je središnje područje Xcodea u kojem se pregledavaju i uređuju postavke projekta i njegovih targeta. Otvara se odabirom projekta u Project Navigatoru.
+U njemu se mogu podešavati osnovne informacije o aplikaciji, kao što su naziv aplikacije, Bundle Identifier, verzija i broj izgradnje, podržani uređaji i minimalna verzija operacijskog sustava. Također omogućuje upravljanje potpisivanjem aplikacije (Signing & Capabilities), resursima, postavkama izgradnje (Build Settings), fazama izgradnje (Build Phases) i drugim konfiguracijama potrebnim za izgradnju i pokretanje aplikacije.
 
 <a href="Documentation/19-navigator-projekta.png"><img src="Documentation/19-navigator-projekta.png" alt="Project navigator s označenim popisom datoteka i karticama navigatora" width="900"></a>
 
@@ -135,15 +137,15 @@ Nakon odabira naredbe za novu datoteku otvara se prozor s dostupnim predlošcima
 
 <a href="Documentation/21-odabir-predloska-swiftui-view.png"><img src="Documentation/21-odabir-predloska-swiftui-view.png" alt="Predlošci novih datoteka s označenim SwiftUI View i Next" width="900"></a>
 
-U sljedećem prozoru određuje se naziv datoteke i mjesto na kojem će biti spremljena. U ovom primjeru pogled je nazvan `PrviPogled`, pa se stvara datoteka `PrviPogled.swift`. Prije spremanja provjerava se odabrana mapa i pripadnost targetu aplikacije kako bi datoteka bila uključena u odgovarajući cilj projekta. Klikom na gumb **Create** Xcode stvara datoteku i dodaje je u Project navigator, nakon čega se njezin sadržaj može otvoriti i uređivati.
+U sljedećem prozoru određuje se naziv datoteke i mjesto na kojem će biti spremljena. U ovom primjeru pogled je nazvan PrviPogled, pa se stvara datoteka PrviPogled.swift. Prije spremanja provjerava se odabrana mapa i pripadnost targetu aplikacije kako bi datoteka bila uključena u odgovarajući cilj projekta. Klikom na gumb **Create** Xcode stvara datoteku i dodaje je u Project navigator, nakon čega se njezin sadržaj može otvoriti i uređivati.
 
 <a href="Documentation/22-spremanje-novog-pogleda.png"><img src="Documentation/22-spremanje-novog-pogleda.png" alt="Spremanje datoteke PrviPogled s označenim nazivom i gumbom Create" width="900"></a>
 
-Za pretraživanje sadržaja projekta koristi se **Find navigator**, koji se otvara klikom na karticu s ikonom povećala ili prečacem **⌘⇧F**. U polje za pretraživanje unosi se željeni pojam, u ovom primjeru `PrviPogled`. Uz pojam moguće je odrediti i opseg pretraživanja, odnosno projekt ili grupu unutar koje se traži podudaranje. Nakon potvrde tipkom **Return** Xcode pretražuje odabrani sadržaj i prikazuje pronađene rezultate.
+Za pretraživanje sadržaja projekta koristi se **Find navigator**, koji se otvara klikom na karticu s ikonom povećala ili prečacem **⌘⇧F**. U polje za pretraživanje unosi se željeni pojam, u ovom primjeru PrviPogled. Uz pojam moguće je odrediti i opseg pretraživanja, odnosno projekt ili grupu unutar koje se traži podudaranje. Nakon potvrde tipkom **Return** Xcode pretražuje odabrani sadržaj i prikazuje pronađene rezultate.
 
 <a href="Documentation/39-pretrazivanje-projekta.png"><img src="Documentation/39-pretrazivanje-projekta.png" alt="Find navigator s označenim pojmom pretraživanja i izborom opsega" width="900"></a>
 
-Rezultati pretraživanja prikazuju se u lijevom panelu i grupirani su prema datotekama u kojima je pronađen traženi pojam. Klikom na pojedini rezultat otvara se odgovarajuća datoteka u editoru i označava mjesto podudaranja. U prikazanom primjeru pretražuje se naziv `PrviPogled`, koji se pojavljuje u definiciji pogleda i njegovu previewu, a može se pojaviti i u početnoj sceni aplikacije ako je ondje postavljen. Ovaj način pretraživanja olakšava pronalaženje povezanih dijelova koda kada projekt sadrži veći broj datoteka.
+Rezultati pretraživanja prikazuju se u lijevom panelu i grupirani su prema datotekama u kojima je pronađen traženi pojam. Klikom na pojedini rezultat otvara se odgovarajuća datoteka u editoru i označava mjesto podudaranja. U prikazanom primjeru pretražuje se naziv PrviPogled, koji se pojavljuje u definiciji pogleda i njegovu previewu, a može se pojaviti i u početnoj sceni aplikacije ako je ondje postavljen. Ovaj način pretraživanja olakšava pronalaženje povezanih dijelova koda kada projekt sadrži veći broj datoteka.
 
 <a href="Documentation/40-rezultati-pretrazivanja.png"><img src="Documentation/40-rezultati-pretrazivanja.png" alt="Rezultati pretraživanja naziva PrviPogled u Navigatoru" width="900"></a>
 
@@ -152,13 +154,13 @@ Rezultati pretraživanja prikazuju se u lijevom panelu i grupirani su prema dato
 
 ## 5. Izrada i pregled SwiftUI sučelja
 
-Otvaranjem datoteke `PrviPogled.swift` u središnjem dijelu prozora prikazuje se njezin programski kod. To područje naziva se **Editor** i koristi se za pisanje i uređivanje sadržaja datoteka. Uz kod se može prikazati i preview korisničkog sučelja. Ako je potrebno više prostora za rad, Inspector se može sakriti klikom na označeni gumb u gornjem desnom kutu prozora. Ponovnim klikom na istu kontrolu desni panel ponovno postaje vidljiv.
+Otvaranjem datoteke PrviPogled.swift u središnjem dijelu prozora prikazuje se njezin programski kod. To područje naziva se **Editor** i koristi se za pisanje i uređivanje sadržaja datoteka. Uz kod se može prikazati i preview korisničkog sučelja. Ako je potrebno više prostora za rad, Inspector se može sakriti klikom na označeni gumb u gornjem desnom kutu prozora. Ponovnim klikom na istu kontrolu desni panel ponovno postaje vidljiv.
 
 <a href="Documentation/23-editor-area.png"><img src="Documentation/23-editor-area.png" alt="Područje editora s označenim gumbom za skrivanje Inspectora" width="900"></a>
 
 Na sljedećoj slici prikazan je raspored u kojem se kod nalazi s lijeve strane, a njegov vizualni prikaz s desne. Područje za pregled sučelja naziva se **Canvas** i omogućuje provjeru izgleda SwiftUI pogleda tijekom razvoja. Promjenom teksta ili rasporeda elemenata u kodu te osvježavanjem previewa može se odmah vidjeti rezultat izmjene. Time se olakšava oblikovanje sučelja jer za svaku promjenu nije potrebno zasebno pokretati cijelu aplikaciju.
 
-Na kraju datoteke nalazi se makronaredba `#Preview`, koja određuje pogled prikazan u Canvasu. Ako Canvas nije vidljiv, uključuje se opcijom **Editor > Canvas**, a pauzirani preview potrebno je nastaviti ili ponovno pokrenuti kako bi se prikaz ažurirao.
+Na kraju datoteke nalazi se makronaredba #Preview, koja određuje pogled prikazan u Canvasu. Ako Canvas nije vidljiv, uključuje se opcijom **Editor > Canvas**, a pauzirani preview potrebno je nastaviti ili ponovno pokrenuti kako bi se prikaz ažurirao.
 
 <a href="Documentation/24-editor-area.png"><img src="Documentation/24-editor-area.png" alt="Usporedni prikaz Code editora i Preview područja s označenim kontrolama" width="900"></a>
 
@@ -198,7 +200,7 @@ Zapisi prethodnih izgradnji dostupni su u području **Report navigator**, koje j
 
 <a href="Documentation/31-pregled-pogresaka-pri-izgradnji.png"><img src="Documentation/31-pregled-pogresaka-pri-izgradnji.png" alt="Report navigator s označenom karticom i neuspjelom izgradnjom" width="900"></a>
 
-Proširivanjem zapisa izgradnje prikazuju se pojedini koraci i poruke povezane s njihovim izvršavanjem. Na sljedećoj slici označen je korak koji nije uspješno završen. Nakon pregleda poruke programer se vraća u datoteku `PrviPogled.swift` i ispravlja nepotpuni poziv komponente. Zatim se ponovno pokreće izgradnja ili osvježava preview kako bi se provjerilo je li problem uklonjen.
+Proširivanjem zapisa izgradnje prikazuju se pojedini koraci i poruke povezane s njihovim izvršavanjem. Na sljedećoj slici označen je korak koji nije uspješno završen. Nakon pregleda poruke programer se vraća u datoteku PrviPogled.swift i ispravlja nepotpuni poziv komponente. Zatim se ponovno pokreće izgradnja ili osvježava preview kako bi se provjerilo je li problem uklonjen.
 
 <a href="Documentation/32-izvjestaj-o-izgradnji-projekta.png"><img src="Documentation/32-izvjestaj-o-izgradnji-projekta.png" alt="Detaljan izvještaj izgradnje s označenim neuspjelim korakom" width="900"></a>
 
@@ -208,7 +210,7 @@ Uspješan završetak nove izgradnje i ponovno prikazivanje pogleda u previewu po
 
 ## 7. Izgradnja i pokretanje aplikacije na simulatoru
 
-Prije pokretanja aplikacije potrebno je razlikovati pogled prikazan u previewu od početnog pogleda same aplikacije. Preview prikazuje sadržaj određen makronaredbom `#Preview` u otvorenoj datoteci. Početni sadržaj pokrenute aplikacije definira se u datoteci čiji naziv završava s `App.swift`, unutar početne scene aplikacije. Ako se želi prikazati novoizrađeni `PrviPogled`, potrebno ga je postaviti kao sadržaj te scene. Samo otvaranje datoteke u editoru ne mijenja pogled koji će se prikazati nakon pokretanja aplikacije.
+Prije pokretanja aplikacije potrebno je razlikovati pogled prikazan u previewu od početnog pogleda same aplikacije. Preview prikazuje sadržaj određen makronaredbom #Preview u otvorenoj datoteci. Početni sadržaj pokrenute aplikacije definira se u datoteci čiji naziv završava s App.swift, unutar početne scene aplikacije. Ako se želi prikazati novoizrađeni PrviPogled, potrebno ga je postaviti kao sadržaj te scene. Samo otvaranje datoteke u editoru ne mijenja pogled koji će se prikazati nakon pokretanja aplikacije.
 
 Izgradnja projekta pokreće se odabirom opcije **Product > Build** ili tipkovničkim prečacem **⌘B**. Tijekom tog postupka Xcode prevodi izvorni kod, povezuje potrebne dijelove projekta i priprema aplikaciju za odabrano odredište. Naredba Build omogućuje provjeru može li se projekt uspješno izgraditi, bez pokretanja aplikacije. Ako postupak završi bez pogrešaka, aplikacija je spremna za sljedeći korak, odnosno pokretanje na simulatoru ili fizičkom uređaju.
 
@@ -236,7 +238,7 @@ Za bilježenje odabrane cjeline promjena koristi se opcija **Integrate > Commit*
 
 <a href="Documentation/37-git-i-promjene-u-projektu.png"><img src="Documentation/37-git-i-promjene-u-projektu.png" alt="Source Control navigator s označenom karticom i novom datotekom" width="900"></a>
 
-Na kartici **Repositories** prikazuju se repozitoriji povezani s projektom. Proširivanjem repozitorija i stavke **Branches** otvara se popis dostupnih grana. U prikazanom primjeru odabrana je grana `main`, uz koju je moguće pregledati pripadajuću povijest commitova. Grane omogućuju odvojeni rad na pojedinim promjenama ili novim funkcionalnostima prije njihova spajanja s glavnom granom. Na taj se način lakše organizira razvoj i prati povijest projekta.
+Na kartici **Repositories** prikazuju se repozitoriji povezani s projektom. Proširivanjem repozitorija i stavke **Branches** otvara se popis dostupnih grana. U prikazanom primjeru odabrana je grana main, uz koju je moguće pregledati pripadajuću povijest commitova. Grane omogućuju odvojeni rad na pojedinim promjenama ili novim funkcionalnostima prije njihova spajanja s glavnom granom. Na taj se način lakše organizira razvoj i prati povijest projekta.
 
 <a href="Documentation/38-git-grane-i-repozitorij.png"><img src="Documentation/38-git-grane-i-repozitorij.png" alt="Kartica Repositories s granom main i sadržajem repozitorija" width="900"></a>
 
@@ -294,28 +296,25 @@ Odabirom pojedinog elementa u stablu ili prikazu moguće je istražiti njegov po
 
 ## 11. Životni ciklus SwiftUI aplikacije
 
-Životni ciklus opisuje ponašanje aplikacije od pokretanja, preko korištenja i odlaska u pozadinu, do ponovnog otvaranja ili završetka rada. Tijekom tih prijelaza potrebno je prilagoditi izvršavanje zadataka, osloboditi nepotrebne resurse i sačuvati podatke korisnika. U SwiftUI aplikaciji pritom se razlikuju razina aplikacije, razina scene i razina pojedinog pogleda.
+Životni ciklus opisuje ponašanje aplikacije od pokretanja, preko korištenja i odlaska u pozadinu, do ponovnog otvaranja ili završetka rada. Tijekom tih prijelaza potrebno je prilagoditi izvršavanje zadataka, osloboditi nepotrebne resurse i sačuvati podatke korisnika.
 
-### 11.1. Ulazna točka, scena i hijerarhija pogleda
-
-Na sljedećoj slici prikazan je odnos osnovnih dijelova SwiftUI aplikacije. Vanjski okvir predstavlja **proces aplikacije**, kojim upravlja operacijski sustav. Unutar njega nalazi se struktura označena atributom **`@main`**, koja predstavlja ulaznu točku aplikacije i implementira protokol **`App`**. U projektu iz prethodnih poglavlja ta se struktura nalazi u datoteci `RazvojnoOkruzenjeApp.swift`. SwiftUI aplikacija ima jednu glavnu ulaznu točku, a njezino svojstvo `body` opisuje scene koje aplikacija koristi.
-
-**Scena (`Scene`)** povezuje životni ciklus dijela korisničkog sučelja s njegovim sadržajem. U prikazanom projektu koristi se **`WindowGroup`**, vrsta scene koja određuje hijerarhiju pogleda za prozore aplikacije. Pogled naveden unutar `WindowGroup` predstavlja početak te hijerarhije, a njegovi podpogledi oblikuju ostatak sučelja. Na platformama koje podržavaju više prozora, poput iPadOS-a, isti `WindowGroup` može služiti kao predložak za više prozora, pri čemu svaki ima vlastito lokalno stanje pogleda..
+Dodirom ikone pokrećemo aplikaciju na mobilnom uređaju. Ako aplikacija još nije pokrenuta, operacijski sustav za nju stvara novi proces. Slika prikazuje kako se od pokretanja aplikacije dolazi do prikaza korisničkog sučelja.
+Ulazna točka SwiftUI aplikacije označena je anotacijom @main. U prikazanom projektu ta struktura implementira protokol App, a unutar svojstva body definira WindowGroup.
+WindowGroup je vrsta scene koja povezuje sadržaj korisničkog sučelja s njegovim životnim ciklusom. Pogled naveden unutar njega početni je pogled aplikacije. On i njegovi podpogledi čine hijerarhiju koju SwiftUI koristi za prikaz sučelja na zaslonu.
 
 <a href="Documentation/49-zivotni-ciklus-ios-aplikacije-1.png"><img src="Documentation/49-zivotni-ciklus-ios-aplikacije-1.png" alt="Odnos procesa aplikacije" width="900"></a>
 
-### 11.2. Aktivnost scene i prijelaz u pozadinu
 
-Druga slika prikazuje prijelaze između stanja scene u iOS-u. **Unattached** označava scenu koja još nije povezana s aplikacijom. Pri otvaranju sučelja scena prelazi u prednji plan i postaje aktivna. Kada korisnik napusti aplikaciju, scena prelazi u pozadinu, a sustav može obustaviti njezino izvršavanje, što je na slici označeno stanjem **Suspended**. Sustav može i odspojiti scenu radi oslobađanja resursa. Dijagram prikazuje širi sustavski model životnog ciklusa scene, dok se u SwiftUI-ju njezina trenutačna aktivnost prati pomoću tipa `ScenePhase`.
+
 
 <a href="Documentation/50-zivotni-ciklus-ios-aplikacije-2.png"><img src="Documentation/50-zivotni-ciklus-ios-aplikacije-2.png" alt="Dijagram prijelaza scene između stanja Unattached, Foreground Inactive, Foreground Active, Background i Suspended" width="900"></a>
 
-SwiftUI kroz **`ScenePhase`** izlaže tri faze. Faza **`.active`** odgovara aktivnom sučelju koje je u prednjem planu i omogućuje interakciju s korisnikom. Tada se mogu nastaviti radnje potrebne za korištenje aplikacije, primjerice osvježavanje prikazanih podataka ili rad vremenskog brojača.
-Faza **`.inactive`** označava da scena trenutačno ne prima korisničke događaje. Može se pojaviti tijekom prijelaza prema pozadini ili privremenog prekida korištenja sučelja. U toj se fazi pauziraju vremenski brojači i druge radnje koje ovise o aktivnoj interakciji. Nakon kratkog prekida scena može ponovno postati aktivna, pa svaki prijelaz u `.inactive` ne mora završiti odlaskom u pozadinu. [Appleova dokumentacija za neaktivnu fazu](https://developer.apple.com/documentation/swiftui/scenephase/inactive).
+SwiftUI kroz **ScenePhase** izlaže tri faze. Faza active odgovara aktivnom sučelju koje je u prednjem planu i omogućuje interakciju s korisnikom. Tada se mogu nastaviti radnje potrebne za korištenje aplikacije.
+Faza inactive označava da scena trenutačno ne prima korisničke događaje. Može se pojaviti tijekom prijelaza prema pozadini ili privremenog prekida korištenja sučelja. U toj se fazi pauziraju vremenski brojači i druge radnje koje ovise o aktivnoj interakciji. Nakon kratkog prekida scena može ponovno postati aktivna, pa svaki prijelaz u .inactive ne mora završiti odlaskom u pozadinu.
 
-Faza **`.background`** označava da scena više nije vidljiva u korisničkom sučelju. Tada se dovršava nužno spremanje i oslobađaju resursi koji više nisu potrebni. Obrada treba biti kratka jer rad aplikacije u pozadini može biti obustavljen ili završen. Stanja **Unattached** i **Suspended**, prikazana na dijagramu, nemaju zasebne vrijednosti unutar `ScenePhase`. Zbog toga se iz same vrijednosti `.background` ne može zaključiti hoće li aplikacija ostati u memoriji, biti obustavljena ili naknadno završiti s radom.
+Faza .background označava da scena više nije vidljiva u korisničkom sučelju. Tada se dovršava nužno spremanje i oslobađaju resursi koji više nisu potrebni. Obrada treba biti kratka jer rad aplikacije u pozadini može biti obustavljen ili završen. Stanja **Unattached** i **Suspended**, prikazana na dijagramu, nemaju zasebne vrijednosti unutar ScenePhase. Zbog toga se iz same vrijednosti .background ne može zaključiti hoće li aplikacija ostati u memoriji, biti obustavljena ili naknadno završiti s radom.
 
-Trenutačna faza u SwiftUI-ju dohvaća se iz okruženja pomoću svojstva **`scenePhase`** i atributa **`@Environment`**. Promjene se prate modifikatorom **`onChange`**, koji omogućuje izvođenje odgovarajuće radnje kada se faza promijeni. Primjerice, pri ulasku u `.active` može se provjeriti treba li osvježiti sadržaj, pri ulasku u `.inactive` pauzirati brojač, a pri ulasku u `.background` spremiti preostale promjene i osloboditi nepotrebne resurse. 
-Mjesto na kojem se čita `scenePhase` određuje na što se dobivena vrijednost odnosi. Kada se koristi unutar pogleda, opisuje scenu kojoj taj pogled pripada. Kada se koristi u glavnoj strukturi `App`, opisuje objedinjeno stanje svih scena aplikacije. Ako aplikacija ima više prozora, jedan može biti aktivan dok je drugi u pozadini. Na razini `App` vrijednost `.active` zato znači da je barem jedna scena aktivna, a `.background` da su sve scene u pozadini. [Appleovo objašnjenje dosega vrijednosti ScenePhase]
-Unutar `onChange` izbjegava se dugotrajna obrada koja bi mogla blokirati sučelje. Također, pokretanje običnog asinkronog zadatka pri promjeni faze samo po sebi ne osigurava dodatno vrijeme izvršavanja nakon odlaska aplikacije u pozadinu. Dulji pozadinski poslovi zahtijevaju odgovarajuću podršku sustava i planiraju se prema namjeni aplikacije. [
+Trenutačna faza u SwiftUI-ju dohvaća se iz okruženja pomoću svojstva scenePhase i atributa @Environment. Promjene se prate modifikatorom onChange, koji omogućuje izvođenje odgovarajuće radnje kada se faza promijeni. Primjerice, pri ulasku u .active može se provjeriti treba li osvježiti sadržaj, pri ulasku u .inactive pauzirati brojač, a pri ulasku u .background spremiti preostale promjene i osloboditi nepotrebne resurse. 
+Mjesto na kojem se čita scenePhase određuje na što se dobivena vrijednost odnosi. Kada se koristi unutar pogleda, opisuje scenu kojoj taj pogled pripada. Kada se koristi u glavnoj strukturi App, opisuje objedinjeno stanje svih scena aplikacije. Ako aplikacija ima više prozora, jedan može biti aktivan dok je drugi u pozadini. Na razini App vrijednost .active zato znači da je barem jedna scena aktivna, a .background da su sve scene u pozadini.
+Unutar onChange izbjegava se dugotrajna obrada koja bi mogla blokirati sučelje. Također, pokretanje običnog asinkronog zadatka pri promjeni faze samo po sebi ne osigurava dodatno vrijeme izvršavanja nakon odlaska aplikacije u pozadinu. Dulji pozadinski poslovi zahtijevaju odgovarajuću podršku sustava i planiraju se prema namjeni aplikacije. [
 
