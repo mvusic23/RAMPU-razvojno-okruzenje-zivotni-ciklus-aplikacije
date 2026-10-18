@@ -75,7 +75,14 @@ na gumb Create Xcode kreira sve potrebne datoteke i otvara novi projekt spreman 
 
 <a href="Documentation/11-spremanje-projekta-i-git-repozitorij.png"><img src="Documentation/11-spremanje-projekta-i-git-repozitorij.png" alt="Odabir mape projekta uz označene opcije lokalnog Git repozitorija i Create" width="900"></a>
 
-Nakon što Xcode završi stvaranje projekta, otvara se glavni prozor razvojnog okruženja s početnim datotekama aplikacije. Odabirom datoteke `ContentView.swift` prikazuje se SwiftUI kod kojim je definiran početni izgled korisničkog sučelja. U ovom primjeru u kodu se nalaze ikona i tekst „Hello, world!”, a njihov izgled može se vidjeti u prikazu s desne strane prozora, koji se naziva preview. Taj prikaz omogućuje pregled sučelja tijekom pisanja koda, bez pokretanja cijele aplikacije u zasebnom simulatoru. Pri prvom otvaranju projekta potrebno je pričekati da Xcode dovrši početne zadatke i pripremi preview.
+Nakon što Xcode završi stvaranje projekta, otvara se glavni prozor razvojnog okruženja s početnim datotekama aplikacije. Odabirom datoteke `ContentView.swift` prikazuje se SwiftUI kod kojim je definiran početni izgled korisničkog sučelja. U ovom primjeru u kodu se nalaze ikona i tekst „Hello, world!”, a njihov izgled može se vidjeti u prikazu s desne strane prozora, koji se naziva preview. Taj prikaz omogućuje pregled sučelja tijekom pisanja koda, bez pokretanja cijele aplikacije u zasebnom simulatoru. Pri prvom otvaranju projekta potrebno je pričekati da Xcode dovrši početne zadatke i pripremi preview. Na lijevoj strani prozora prikazana je početna struktura projekta RazvojnoOkruzenje. Stavke imaju sljdeće uloge:
+
+1. RazvojnoOkruzenje(ikona projekta) predstavlja glavni projekt u Xcodeu. Projekt povezuje datoteke i resurse aplikacije s postavkama potrebnima za njezinu izgradnju i pokretanje. Odabirom ove stavke otvara se pregled postavki projekta i pripadajućih targeta.
+2. RazvojnoOkruzenje(mapa) predstavlja glavnu mapu izvornog koda i resursa aplikacije. U njoj su organizirane Swift datoteke, pogledi korisničkog sučelja i ostali sadržaji potrebni za rad aplikacije. Tijekom razvoja u tu se strukturu mogu dodavati nove datoteke i podmape
+3. Assets predstavlja katalog resursa aplikacije odnosno u njemu se organiziraju slike, boje i ikona aplikacije
+4. ContentView.swift sadrži početni SwiftUI pogled aplikacije.
+5. RazvojnoOkruzenjeApp.swift definira ulaznu točku aplikacije. U njoj se nalazi struktura koja implementira protokol `App` i označena je atributom `@main`. 
+
 
 <a href="Documentation/12-prvi-prikaz-projekta-u-xcodeu.png"><img src="Documentation/12-prvi-prikaz-projekta-u-xcodeu.png" alt="Novi projekt s početnim SwiftUI kodom u ContentView i previewom" width="900"></a>
 
