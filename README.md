@@ -296,7 +296,8 @@ Odabirom pojedinog elementa u stablu ili prikazu moguće je istražiti njegov po
 
 ## 11. Životni ciklus SwiftUI aplikacije
 
-Životni ciklus opisuje ponašanje aplikacije od pokretanja, preko korištenja i odlaska u pozadinu, do ponovnog otvaranja ili završetka rada. Tijekom tih prijelaza potrebno je prilagoditi izvršavanje zadataka, osloboditi nepotrebne resurse i sačuvati podatke korisnika.
+Životni ciklus opisuje ponašanje aplikacije od pokretanja, preko korištenja i odlaska u pozadinu, do ponovnog otvaranja ili završetka rada. 
+Bitno je razlikovati životni cikulus Scene i životni cikuls Viewa jer se razulikuju i to nisu iste stvari, kako bismo probali dobiti to razumjevanje koristit ćeko sliku ispod i gledati što se dogodi kadda želimo pokrenuti našu aplikaciju.
 
 Dodirom ikone pokrećemo aplikaciju na mobilnom uređaju. Ako aplikacija još nije pokrenuta, operacijski sustav za nju stvara novi proces. Slika prikazuje kako se od pokretanja aplikacije dolazi do prikaza korisničkog sučelja.
 Ulazna točka SwiftUI aplikacije označena je anotacijom @main. U prikazanom projektu ta struktura implementira protokol App, a unutar svojstva body definira WindowGroup.
@@ -304,17 +305,17 @@ WindowGroup je vrsta scene koja povezuje sadržaj korisničkog sučelja s njegov
 
 <a href="Documentation/49-zivotni-ciklus-ios-aplikacije-1.png"><img src="Documentation/49-zivotni-ciklus-ios-aplikacije-1.png" alt="Odnos procesa aplikacije" width="900"></a>
 
+Aplikacija je program i njegovi resursi, a tijekom izvođenja radi unutar procesa. Scena(scene) predstavlja jednu instancu njezina korisničkog sučelja, primjerice prozor. Na iPhoneu aplikacija obično prikazuje jednu scenu, dok na iPadu ili Macu može imati više prozora, odnosno scena, sa zasebnim životnim ciklusima.
+Prije povezivanja s aplikacijom scena je u stanju unattached. To je stanje scene i ne znači da proces aplikacije nije pokrenut. Pri uobičajenom otvaranju scena se povezuje s aplikacijom, prelazi kroz foreground inactive i zatim postaje foreground active.
+Active znači da je scena u prvom planu i interaktivna: korisnik može tipkati, pritiskati gumbe i koristiti funkcije aplikacije. Inactive znači da je scena još u prvom planu, ali trenutačno ne prima korisnički unos i trebala bi pauzirati rad koji zahtijeva aktivnu interakciju. Kod se pritom još može izvršavati. Ovo stanje nastaje tijekom prijelaza ili privremenih prekida, primjerice otvaranja Control Centera. Nakon prekida scena se može vratiti izravno u active, bez odlaska u pozadinu.
+Kada korisnik prijeđe u drugu aplikaciju ili na početni zaslon, scena obično prelazi iz active preko inactive u background. Background znači da scena više nije vidljiva. Tada treba zaustaviti nepotreban rad vezan uz sučelje, osloboditi skupe prezentacijske resurse i kratko dovršiti nužne poslove. Važne podatke treba spremati tijekom korištenja aplikacije, uz spremanje preostalih izmjena pri odlasku u pozadinu.
+Background ne znači da je proces ugašen ili suspendiran. Nakon odlaska u pozadinu proces još može kratko izvršavati kod. Ako nema razloga za daljnje izvršavanje, iOS ga može suspendirati.
+Suspenzija opisuje proces, a background opisuje stanje scene. Kada je proces suspendiran, njegova memorija može ostati sačuvana, ali njegove se dretve ne izvršavaju i ne dobivaju procesorsko vrijeme. Objekti ostaju u memoriji, ali njihov kod ne radi. Jedna scena u backgroundu ne znači da je proces suspendiran.
+Ako se korisnik vrati dok je proces suspendiran i još u memoriji, iOS nastavlja njegovo izvršavanje, a scena pri povratku u prvi plan prolazi kroz inactive i ponovno postaje active. Aplikacija tada može nastaviti s prethodno sačuvanim stanjem u memoriji.
+iOS može terminirati suspendirani proces kako bi oslobodio resurse. Aplikacija tada nema zajamčen završni callback za spremanje podataka. Gubi se cjelokupno stanje procesa u memoriji, uključujući modele i stanje sučelja koje nije trajno spremljeno. Pri sljedećem otvaranju pokreće se novi proces, a aplikacija rekonstruira sučelje i učitava spremljene podatke.
+SwiftUI View ima zasebne događaje pojavljivanja i nestajanja, koje pratimo pomoću onAppear i onDisappear. Modifier .task pokreće asinkroni zadatak vezan uz prisutnost prikaza; SwiftUI traži njegovo otkazivanje kada prikaz nestane, a zadatak mora surađivati s otkazivanjem. Ti događaji nisu isto što i promjene stanja scene. Povratak aplikacije u active ne mora ponovno pozvati onAppear, pa promjene faze scene pratimo pomoću @Environment(\.scenePhase).
 
 
 
-<a href="Documentation/50-zivotni-ciklus-ios-aplikacije-2.png"><img src="Documentation/50-zivotni-ciklus-ios-aplikacije-2.png" alt="Dijagram prijelaza scene između stanja Unattached, Foreground Inactive, Foreground Active, Background i Suspended" width="900"></a>
-
-SwiftUI kroz **ScenePhase** izlaže tri faze. Faza active odgovara aktivnom sučelju koje je u prednjem planu i omogućuje interakciju s korisnikom. Tada se mogu nastaviti radnje potrebne za korištenje aplikacije.
-Faza inactive označava da scena trenutačno ne prima korisničke događaje. Može se pojaviti tijekom prijelaza prema pozadini ili privremenog prekida korištenja sučelja. U toj se fazi pauziraju vremenski brojači i druge radnje koje ovise o aktivnoj interakciji. Nakon kratkog prekida scena može ponovno postati aktivna, pa svaki prijelaz u .inactive ne mora završiti odlaskom u pozadinu.
-
-Faza .background označava da scena više nije vidljiva u korisničkom sučelju. Tada se dovršava nužno spremanje i oslobađaju resursi koji više nisu potrebni. Obrada treba biti kratka jer rad aplikacije u pozadini može biti obustavljen ili završen. Stanja **Unattached** i **Suspended**, prikazana na dijagramu, nemaju zasebne vrijednosti unutar ScenePhase. Zbog toga se iz same vrijednosti .background ne može zaključiti hoće li aplikacija ostati u memoriji, biti obustavljena ili naknadno završiti s radom.
-
-Trenutačna faza u SwiftUI-ju dohvaća se iz okruženja pomoću svojstva scenePhase i atributa @Environment. Promjene se prate modifikatorom onChange, koji omogućuje izvođenje odgovarajuće radnje kada se faza promijeni. Primjerice, pri ulasku u .active može se provjeriti treba li osvježiti sadržaj, pri ulasku u .inactive pauzirati brojač, a pri ulasku u .background spremiti preostale promjene i osloboditi nepotrebne resurse. 
-Mjesto na kojem se čita scenePhase određuje na što se dobivena vrijednost odnosi. Kada se koristi unutar pogleda, opisuje scenu kojoj taj pogled pripada. Kada se koristi u glavnoj strukturi App, opisuje objedinjeno stanje svih scena aplikacije. Ako aplikacija ima više prozora, jedan može biti aktivan dok je drugi u pozadini. Na razini App vrijednost .active zato znači da je barem jedna scena aktivna, a .background da su sve scene u pozadini.
-Unutar onChange izbjegava se dugotrajna obrada koja bi mogla blokirati sučelje. Također, pokretanje običnog asinkronog zadatka pri promjeni faze samo po sebi ne osigurava dodatno vrijeme izvršavanja nakon odlaska aplikacije u pozadinu. Dulji pozadinski poslovi zahtijevaju odgovarajuću podršku sustava i planiraju se prema namjeni aplikacije. [
+<a href="Documentation/50-zivotni-ciklus-ios-aplikacije-2.png"><img src="Documentation/50-zivotni-ciklus-ios-aplikacije-2.png" width="900"></a>
 
